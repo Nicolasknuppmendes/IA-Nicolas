@@ -77,3 +77,19 @@
                             }
                         ]
                     }
+                ];
+
+                let atual=0;
+                let PerguntaAtual;
+                let historiaFinal= "";
+
+                function mostraPergunta(){
+                    if (atual>=Perguntas.lenght){
+                        mostraResultado();
+                        return;
+                    }
+                    PerguntaAtual=Perguntas[atual];
+                    caixaPerguntas.textContent=PerguntaAtual.enunciado;
+                    caixaAlternativas.textContent="";
+                    mostraPergunta();
+                }
