@@ -1,95 +1,67 @@
- const caixaPrincipal=document.querySelector(".caixa-Principal")
- const caixaPerguntas=document.querySelector(".caixa-Perguntas")
- const caixaAlternativas=document.querySelector(".caixa-alternativas")
- const caixaResultados=document.querySelector(".caixa-resultado")
- const textoResultado=document.querySelector(".texto-resultado")
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 
 
- const Perguntas=[
+const perguntas = [
     {
         enunciado: "Pergunta 1",
         alternativas: [
-            { 
+            {
                 texto: "Alternativa A",
-                afirmação: "afirmação da alternativa A"
+                afirmacao: "afirmacao da alternativa A."
             },
-            {   
-                texto: "Alternativa B",
-                afirmação: "afirmação da alternativa B"
+            {
+                texto: "Alternativa B",      ]
+            }
+        ];
+        
+        let atual = 0;
+        let perguntaAtual;
+        let historiaFinal = "";
+        
+        function mostraPergunta(){
+            if (atual >= perguntas.length){
+                mostraResultado();
+                return;
+            }
+            perguntaAtual = perguntas[atual];
+            caixaPerguntas.textContent = perguntaAtual.enunciado;
+            caixaAlternativas.textContent = "";
+            mostraAlternativas();
+        }
+                afirmacao: "afirmacao da alternativa B."
             }
         ]
     },
-  
-        {
-            enunciado: "Pergunta 2",
-            alternativas: [
-                { 
-                    texto: "Alternativa A",
-                    afirmação: "afirmação da alternativa A"
-                },
-                {   
-                    texto: "Alternativa B",
-                    afirmação: "afirmação da alternativa B"
-                }
-            ]
-        }
-
-             {
-                enunciado: "Pergunta 3",
-                alternativas: [
-                    { 
-                        texto: "Alternativa A",
-                        afirmação: "afirmação da alternativa A"
-                    },
-                    {   
-                        texto: "Alternativa B",
-                        afirmação: "afirmação da alternativa B"
-                    }
-                ]
+    {
+        enunciado: "Pergunta 2",
+        alternativas: [
+            {
+                texto: "Alternativa A",
+                afirmacao: "afirmacao da alternativa A."
+            },
+            {
+                texto: "Alternativa B",
+                afirmacao: "afirmacao da alternativa B."
             }
+        ]
+    }
+];
 
-            
-                {
-                    enunciado: "Pergunta 4",
-                    alternativas: [
-                        { 
-                            texto: "Alternativa A",
-                            afirmação: "afirmação da alternativa A"
-                        },
-                        {   
-                            texto: "Alternativa B",
-                            afirmação: "afirmação da alternativa B"
-                        }
-                    ]
-                }
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
 
-                
-                    {
-                        enunciado: "Pergunta 5",
-                        alternativas: [
-                            { 
-                                texto: "Alternativa A",
-                                afirmação: "afirmação da alternativa A"
-                            },
-                            {   
-                                texto: "Alternativa B",
-                                afirmação: "afirmação da alternativa B"
-                            }
-                        ]
-                    }
-                ];
-
-                let atual=0;
-                let PerguntaAtual;
-                let historiaFinal= "";
-
-                function mostraPergunta(){
-                    if (atual>=Perguntas.lenght){
-                        mostraResultado();
-                        return;
-                    }
-                    PerguntaAtual=Perguntas[atual];
-                    caixaPerguntas.textContent=PerguntaAtual.enunciado;
-                    caixaAlternativas.textContent="";
-                    mostraPergunta();
-                }
+function mostraPergunta(){
+    if (atual >= perguntas.length){
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
